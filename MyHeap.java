@@ -45,7 +45,21 @@ public class MyHeap{
     }
   }
   private static void pushUp(int[] data, int index){
-
+    int cur = index;
+    int par = (cur-1)/2;
+    int temp;
+    while(cur>0){
+      if(data[cur]>data[par]){
+        temp=data[cur];
+        data[cur]=data[par];
+        data[par]=temp;
+        cur = par;
+        par = (cur-1)/2;
+      }
+      else{
+        return;
+      }
+    }
   }
   public static void heapify(int[] data){
     for(int i=data.length-1;i>-1;i--){
