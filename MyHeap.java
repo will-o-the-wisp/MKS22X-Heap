@@ -1,10 +1,10 @@
+import java.util.*;
 public class MyHeap{
-  public static void main(String[] args){
-    int[] a = {1,2,3,4,5,6,7,8};
-    HeapPrinter.print(a);
-    heapify(a);
-    HeapPrinter.print(a);
-  }
+  public static void main(String[]args){
+  int[] a = {};
+  heapify(a);
+  heapsort(a);
+}
   private static void pushDown(int[] data,int size, int index){
     int cur=index;
     int left=2*cur+1;
@@ -67,6 +67,13 @@ public class MyHeap{
     }
   }
   public static void heapsort(int[] data){
-
+    int temp;
+    heapify(data);
+    for(int i=data.length-1;i>0;i--){
+      temp=data[0];
+      data[0]=data[i];
+      data[i]=temp;
+      pushDown(data,i,0);
+    }
   }
 }
